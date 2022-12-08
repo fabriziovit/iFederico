@@ -8,17 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		A970BAC82940B1C0004AAFD0 /* iFedericoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A970BAC72940B1C0004AAFD0 /* iFedericoApp.swift */; };
-		A970BACA2940B1C0004AAFD0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A970BAC92940B1C0004AAFD0 /* ContentView.swift */; };
+		A970BACA2940B1C0004AAFD0 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A970BAC92940B1C0004AAFD0 /* ContainerView.swift */; };
 		A970BACC2940B1C2004AAFD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A970BACB2940B1C2004AAFD0 /* Assets.xcassets */; };
 		A970BACF2940B1C2004AAFD0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A970BACE2940B1C2004AAFD0 /* Preview Assets.xcassets */; };
+		A997C591294275D10054CC91 /* GeneralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A997C590294275D10054CC91 /* GeneralView.swift */; };
+		A997C5952942761C0054CC91 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A997C5942942761C0054CC91 /* ProfileView.swift */; };
+		A997C597294276270054CC91 /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A997C596294276270054CC91 /* MessagesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A970BAC42940B1C0004AAFD0 /* iFederico.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iFederico.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A970BAC72940B1C0004AAFD0 /* iFedericoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iFedericoApp.swift; sourceTree = "<group>"; };
-		A970BAC92940B1C0004AAFD0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A970BAC92940B1C0004AAFD0 /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
 		A970BACB2940B1C2004AAFD0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A970BACE2940B1C2004AAFD0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A997C590294275D10054CC91 /* GeneralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralView.swift; sourceTree = "<group>"; };
+		A997C5942942761C0054CC91 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		A997C596294276270054CC91 /* MessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +58,10 @@
 			isa = PBXGroup;
 			children = (
 				A970BAC72940B1C0004AAFD0 /* iFedericoApp.swift */,
-				A970BAC92940B1C0004AAFD0 /* ContentView.swift */,
+				A970BAC92940B1C0004AAFD0 /* ContainerView.swift */,
+				A997C590294275D10054CC91 /* GeneralView.swift */,
+				A997C5942942761C0054CC91 /* ProfileView.swift */,
+				A997C596294276270054CC91 /* MessagesView.swift */,
 				A970BACB2940B1C2004AAFD0 /* Assets.xcassets */,
 				A970BACD2940B1C2004AAFD0 /* Preview Content */,
 			);
@@ -137,7 +146,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A970BACA2940B1C0004AAFD0 /* ContentView.swift in Sources */,
+				A997C597294276270054CC91 /* MessagesView.swift in Sources */,
+				A997C5952942761C0054CC91 /* ProfileView.swift in Sources */,
+				A997C591294275D10054CC91 /* GeneralView.swift in Sources */,
+				A970BACA2940B1C0004AAFD0 /* ContainerView.swift in Sources */,
 				A970BAC82940B1C0004AAFD0 /* iFedericoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
