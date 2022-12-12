@@ -48,3 +48,10 @@ struct Question : Identifiable {
     var AnswerCounter : Int
 }
 
+struct Subject: Identifiable {
+    var id = UUID() //identifica univocamente i teams
+    var name: String
+    var department: String
+    //var year: String
+}
+
