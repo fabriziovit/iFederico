@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		57CDB9D929471E6A00DAF7FE /* SubjectData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CDB9D829471E6A00DAF7FE /* SubjectData.swift */; };
+		57CDB9DB29471EF000DAF7FE /* SubjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CDB9DA29471EF000DAF7FE /* SubjectModel.swift */; };
 		A970BAC82940B1C0004AAFD0 /* iFedericoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A970BAC72940B1C0004AAFD0 /* iFedericoApp.swift */; };
 		A970BACA2940B1C0004AAFD0 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A970BAC92940B1C0004AAFD0 /* ContainerView.swift */; };
 		A970BACC2940B1C2004AAFD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A970BACB2940B1C2004AAFD0 /* Assets.xcassets */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		57CDB9D829471E6A00DAF7FE /* SubjectData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectData.swift; sourceTree = "<group>"; };
+		57CDB9DA29471EF000DAF7FE /* SubjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectModel.swift; sourceTree = "<group>"; };
 		A970BAC42940B1C0004AAFD0 /* iFederico.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iFederico.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A970BAC72940B1C0004AAFD0 /* iFedericoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iFedericoApp.swift; sourceTree = "<group>"; };
 		A970BAC92940B1C0004AAFD0 /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
@@ -68,6 +72,8 @@
 				FA09C0552947185100828EE5 /* Data.swift */,
 				A997C5942942761C0054CC91 /* ProfileView.swift */,
 				A997C596294276270054CC91 /* MessagesView.swift */,
+				57CDB9D829471E6A00DAF7FE /* SubjectData.swift */,
+				57CDB9DA29471EF000DAF7FE /* SubjectModel.swift */,
 				A970BACB2940B1C2004AAFD0 /* Assets.xcassets */,
 				A970BACD2940B1C2004AAFD0 /* Preview Content */,
 			);
@@ -157,7 +163,9 @@
 				A997C5952942761C0054CC91 /* ProfileView.swift in Sources */,
 				A997C591294275D10054CC91 /* GeneralView.swift in Sources */,
 				FA09C0522947182F00828EE5 /* Model.swift in Sources */,
+				57CDB9DB29471EF000DAF7FE /* SubjectModel.swift in Sources */,
 				A970BACA2940B1C0004AAFD0 /* ContainerView.swift in Sources */,
+				57CDB9D929471E6A00DAF7FE /* SubjectData.swift in Sources */,
 				A970BAC82940B1C0004AAFD0 /* iFedericoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
