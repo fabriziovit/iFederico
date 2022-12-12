@@ -57,14 +57,15 @@ struct GeneralView: View {
                             HStack {
                                 Image(systemName: "paperclip.circle")
                                     .foregroundColor(Color(UIColor(named: "AppBlu")!))
-                                    .font(.title)
+                                    .font(.custom("SFPro" , size: 30))
                                 Text("0")
                                 +
                                 Text("  ")
                                 
                                 Image(systemName: "message.circle")
                                     .foregroundColor(Color(UIColor(named: "AppBlu")!))
-                                    .font(.title)
+                                    .font(.custom("SFPro" , size: 30))
+
                                 Text("0")
                             }
                             
