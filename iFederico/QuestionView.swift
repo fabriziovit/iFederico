@@ -106,11 +106,10 @@ struct QuestionView: View {
                     .padding(.horizontal, 40) // distanzia i margini
                     .padding([.top, .bottom],20)
                     .background(.white)
-                    //                    .cornerRadius(8) //arrotonda i margini
+                    //                    .cornerRadius(8) 
                     
                 } //foreach
-                //                } //List
-            } // scrollview //disattiva se attivi list risposte
+            } // scroll view
             
             Section {
                 
