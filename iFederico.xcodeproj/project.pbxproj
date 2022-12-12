@@ -14,6 +14,8 @@
 		A997C591294275D10054CC91 /* GeneralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A997C590294275D10054CC91 /* GeneralView.swift */; };
 		A997C5952942761C0054CC91 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A997C5942942761C0054CC91 /* ProfileView.swift */; };
 		A997C597294276270054CC91 /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A997C596294276270054CC91 /* MessagesView.swift */; };
+		FA09C0522947182F00828EE5 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA09C0512947182F00828EE5 /* Model.swift */; };
+		FA09C0562947185100828EE5 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA09C0552947185100828EE5 /* Data.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		A997C590294275D10054CC91 /* GeneralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralView.swift; sourceTree = "<group>"; };
 		A997C5942942761C0054CC91 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		A997C596294276270054CC91 /* MessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesView.swift; sourceTree = "<group>"; };
+		FA09C0512947182F00828EE5 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		FA09C0552947185100828EE5 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				A970BAC72940B1C0004AAFD0 /* iFedericoApp.swift */,
 				A970BAC92940B1C0004AAFD0 /* ContainerView.swift */,
 				A997C590294275D10054CC91 /* GeneralView.swift */,
+				FA09C0512947182F00828EE5 /* Model.swift */,
+				FA09C0552947185100828EE5 /* Data.swift */,
 				A997C5942942761C0054CC91 /* ProfileView.swift */,
 				A997C596294276270054CC91 /* MessagesView.swift */,
 				A970BACB2940B1C2004AAFD0 /* Assets.xcassets */,
@@ -146,9 +152,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA09C0562947185100828EE5 /* Data.swift in Sources */,
 				A997C597294276270054CC91 /* MessagesView.swift in Sources */,
 				A997C5952942761C0054CC91 /* ProfileView.swift in Sources */,
 				A997C591294275D10054CC91 /* GeneralView.swift in Sources */,
+				FA09C0522947182F00828EE5 /* Model.swift in Sources */,
 				A970BACA2940B1C0004AAFD0 /* ContainerView.swift in Sources */,
 				A970BAC82940B1C0004AAFD0 /* iFedericoApp.swift in Sources */,
 			);
