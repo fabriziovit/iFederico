@@ -14,21 +14,6 @@ struct GeneralView: View {
     var filteredQuestion: ([Question], [Subject]) {
         get {
             if searchText.isEmpty { return (myData.questions, []) }
-            return (myData.questions.filter { question in
-                (question.title.lowercased().contains(searchText.lowercased()) || question.tag.lowercased().contains(searchText.lowercased()) || question.userName.lowercased().contains(searchText.lowercased()) || question.body.lowercased().contains(searchText.lowercased()))
-            },myData.subjects.filter{ subject in
-                (subject.name.lowercased().contains(searchText.lowercased()))
-            })
-        }
-        set {
-            myData.questions = newValue.0
-            myData.subjects = newValue.1
-        }
-    }
-    
-    /*var filteredQuestion: ([Question], [Subject]) {
-        get {
-            if searchText.isEmpty { return (myData.questions, []) }
             return ([],myData.subjects.filter{ subject in
                 (subject.name.lowercased().contains(searchText.lowercased()))
             })
@@ -37,92 +22,116 @@ struct GeneralView: View {
             //myData.questions = newValue.0
             myData.subjects = newValue.1
         }
-    }*/
+    }
     
     var body: some View {
         NavigationStack{
             ScrollView{
-                Divider()
-                HStack {
-                    Text("About your courses")
-                        .position(x:100,y:10)
-                        .bold()
-                    
-                }
-                
+
                 ForEach(filteredQuestion.1) {subject in
                     
-                    ZStack(alignment: .leading) {
-                        Rectangle()
-                            .fill(.white)
-                        //.opacity(0.2)
+                    //NavigationLink(destination: SubjectCategoryView()) {
                         
-                            .frame(height: 50)
-                        VStack(alignment: .leading) {
-                            HStack {
-                                Text (subject.name)
-                                    .bold()
+                        ZStack(alignment: .leading) {
+                            Rectangle()
+                                .fill(.white)
+                            //.opacity(0.10)
+                                .frame(height: 50)
+                                .cornerRadius(20)
+                            VStack(alignment: .leading) {
+                                HStack {
+                                    Text (subject.name)
+                                        .bold()
+                                        .foregroundColor(Color(UIColor(named: "AppBlu")!))
+                                        .padding()
+                                }
                             }
                         }
                     }
-                }
+                    
+                //}
                 
                 ForEach(filteredQuestion.0) {question in
                     
-                    ZStack(alignment: .leading) {
-                        Rectangle()
-                            .fill(.white)
-                        //.opacity(0.2)
+                    ZStack(alignment: .center) {
                         
-                            .frame(height: 200)
+                            Rectangle()
+                                .fill(.white)
+                                .frame(width: 362, height: 190)
+                                .cornerRadius(20)
                         
                         
-                        VStack(alignment: .leading) {
+                        
+                        VStack(alignment: .leading, spacing: 5) {
                             HStack {
                                 Text (question.userName)
-                                    .bold()
+                                    .font(.system(size: 17, weight: .bold, design: .default))
+                                    
                                 Text (question.status)
+                                    
+                                
                                 Text(" - ")
                                 +
-                                Text(question.date, style: .date)
+                                Text(question.date.formatted(.dateTime.day().month().year()))
+                                    
                                 
                                 
                             } .foregroundColor(.black)
+                            
+                            
+                            
+                            
                             Text(question.title)
-                                .font(.title)
-                                .bold()
+                                .font(.system(size: 24, weight: .bold, design: .default))
+                                
+            
                             
                             Text(question.body)
                                 .lineLimit(2)
+                                .font(.system(size: 17,design: .default))
+                                
+                            
                             Divider()
+                              
                             
                             HStack {
-                                Image(systemName: "paperclip.circle")
+                                
+                                
+                                Image(systemName: "paperclip")
                                     .foregroundColor(Color(UIColor(named: "AppBlu")!))
-                                    .font(.custom("SFPro" , size: 30))
+                                    .font(.custom("SFPro", size: 18))
                                 Text("0")
                                 +
                                 Text("  ")
                                 
-                                Image(systemName: "message.circle")
+                                Image(systemName: "message")
                                     .foregroundColor(Color(UIColor(named: "AppBlu")!))
-                                    .font(.custom("SFPro" , size: 30))
-                                
+                                    .font(.custom("SFPro", size: 18))
                                 Text("0")
                             }
+                            
+                            
                         } .foregroundColor(.black)
-                            .padding(.horizontal)
+                        
+                            .padding(EdgeInsets(top: 0, leading: 30, bottom: 0, trailing: 20))
+
                     }
-                    .foregroundColor(.white)
+                    
+                    
+                    
                 }
+                
+                
             }
             .background(Color(UIColor(named: "ScreenColor")!))
-            .searchable(text: $searchText)
+            .searchable(text: $searchText, prompt: "Search by courses...")
+            
             .navigationTitle("Study Space")
+            
         }
     }
+    
 }
-
 struct GeneralView_Previews: PreviewProvider {
     static var previews: some View {
         GeneralView()
