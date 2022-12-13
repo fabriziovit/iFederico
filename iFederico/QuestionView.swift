@@ -22,6 +22,12 @@ struct QuestionView: View {
                 VStack(alignment: .leading) {
                     
                     HStack {
+                        Image("Image")
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                            .clipShape(Circle())
+                            .shadow(radius: 10)
+                        
                         Text(myData.questions[0].userName)
                             .bold()
                             .foregroundColor(Color("AppBlu"))
@@ -56,9 +62,11 @@ struct QuestionView: View {
                     
                 } // vstack
                 
-                .padding(.horizontal, 40)
+                .padding(.horizontal, 20)
                 .padding([.top, .bottom], 20)
                 .background(.white)
+                .frame(width: 350)
+                .cornerRadius(35)
                 
                 
                 Text("")
@@ -72,11 +80,17 @@ struct QuestionView: View {
                     VStack(alignment: .leading) {
                         
                         HStack {
+                            Image("Image")
+                                .resizable()
+                                .frame(width: 20, height: 20)
+                                .clipShape(Circle())
                             Text(answer.nickname)
                                 .bold()
                                 .foregroundColor(Color("AppBlu"))
                             
                             Spacer()
+                            /*     Text(answer.date, style: .date)
+                             .font(.custom("SFPro", size: 15)) */
                             
                         } // Hstack
                         Text("")
@@ -86,6 +100,7 @@ struct QuestionView: View {
                         Divider()
                         
                         HStack {
+                            
                             Text(answer.date.formatted(.dateTime.day().month().year()) )
                                 .font(.custom("SFPro", size: 15))
                                 .foregroundColor(.black)
@@ -96,7 +111,7 @@ struct QuestionView: View {
                             
                             Image(systemName: "arrowshape.backward")
                                 .rotationEffect(.degrees(90))
-                             
+                            
                             Text("\(answer.like)" + " ")
                             Image(systemName: "arrowshape.backward")
                                 .rotationEffect(.degrees(270))
@@ -106,23 +121,28 @@ struct QuestionView: View {
                         .foregroundColor(Color("AppBlu"))
                         
                     } // vstack
-                    .padding(.horizontal, 40) // distanzia i margini
+                    .padding(.horizontal, 20) // distanzia i margini
                     .padding([.top, .bottom],20)
                     .background(.white)
+                    .cornerRadius(20)
+                    .frame(width: 350)
                     
                 } //foreach
-            }
+            } // scrollview
+            
             Section {
                 
                 TextField("Write your answer...", text: $newAnswer)
+                    .padding()
+                //                    .frame(width: 350)
             } //section
-            .padding()
             .frame(width: 350)
             .background(.white)
             .cornerRadius(80)
             
             
         } //vstack
+        .frame(width: 400)
         .background(Color("ScreenColor"))
         
     }//body
