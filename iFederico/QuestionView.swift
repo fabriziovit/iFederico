@@ -106,13 +106,12 @@ struct QuestionView: View {
                         .foregroundColor(Color("AppBlu"))
                         
                     } // vstack
-                    .padding(.horizontal, 40) 
+                    .padding(.horizontal, 40) // distanzia i margini
                     .padding([.top, .bottom],20)
                     .background(.white)
-                
+                    
                 } //foreach
             }
-            
             Section {
                 
                 TextField("Write your answer...", text: $newAnswer)
