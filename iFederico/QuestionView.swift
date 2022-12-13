@@ -22,7 +22,7 @@ struct QuestionView: View {
                 VStack(alignment: .leading) {
                     
                     HStack {
-                        Image("Image")
+                        myData.questions[0].im
                             .resizable()
                             .frame(width: 20, height: 20)
                             .clipShape(Circle())
@@ -80,7 +80,7 @@ struct QuestionView: View {
                     VStack(alignment: .leading) {
                         
                         HStack {
-                            Image("Image")
+                            answer.im
                                 .resizable()
                                 .frame(width: 20, height: 20)
                                 .clipShape(Circle())
@@ -89,8 +89,6 @@ struct QuestionView: View {
                                 .foregroundColor(Color("AppBlu"))
                             
                             Spacer()
-                            /*     Text(answer.date, style: .date)
-                             .font(.custom("SFPro", size: 15)) */
                             
                         } // Hstack
                         Text("")
@@ -121,7 +119,7 @@ struct QuestionView: View {
                         .foregroundColor(Color("AppBlu"))
                         
                     } // vstack
-                    .padding(.horizontal, 20) // distanzia i margini
+                    .padding(.horizontal, 20) 
                     .padding([.top, .bottom],20)
                     .background(.white)
                     .cornerRadius(20)
@@ -153,4 +151,3 @@ struct QuestionView_Previews: PreviewProvider {
         QuestionView()
     }
 }
-
