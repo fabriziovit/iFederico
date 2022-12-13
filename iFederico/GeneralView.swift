@@ -30,12 +30,12 @@ struct GeneralView: View {
 
                 ForEach(filteredQuestion.1) {subject in
                     
-                    NavigationLink(destination: SubjectCategoryView()) {
+                    NavigationLink(destination: SubjectView()) {
                         
                         ZStack(alignment: .leading) {
                             Rectangle()
                                 .fill(.white)
-                            //.opacity(0.10)
+                            .opacity(0.10)
                                 .frame(height: 50)
                                 .cornerRadius(20)
                             VStack(alignment: .leading) {

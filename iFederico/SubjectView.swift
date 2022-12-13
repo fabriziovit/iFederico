@@ -1,4 +1,11 @@
 //
+//  SubjectCategorView.swift
+//  iFederico
+//
+//  Created by Fabrizio Vitale on 13/12/22.
+//
+
+//
 //  SubjectCategoryView.swift
 //  iFederico
 //
@@ -7,7 +14,7 @@
 
 import SwiftUI
 
-struct SubjectCategoryView: View {
+struct SubjectView: View {
     @State private var searchText = ""
     @ObservedObject var myData = sharedData
     
@@ -128,7 +135,7 @@ struct SubjectCategoryView: View {
 
 struct SubjectCategoryView_Previews: PreviewProvider {
     static var previews: some View {
-        SubjectCategoryView()
+        SubjectView()
     }
 }
 
