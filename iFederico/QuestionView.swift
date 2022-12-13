@@ -28,6 +28,7 @@ struct QuestionView: View {
                         Spacer()
                         
                         Text(myData.questions[0].status)
+                            .italic()
                         
                         Text("- ")
                         Text(myData.questions[0].date.formatted(.dateTime.day().month().year()) )
@@ -55,10 +56,10 @@ struct QuestionView: View {
                     
                 } // vstack
                 
-                
                 .padding(.horizontal, 40)
                 .padding([.top, .bottom], 20)
                 .background(.white)
+                
                 
                 Text("")
                 Text("")
@@ -76,8 +77,6 @@ struct QuestionView: View {
                                 .foregroundColor(Color("AppBlu"))
                             
                             Spacer()
-                            /*     Text(answer.date, style: .date)
-                             .font(.custom("SFPro", size: 15)) */
                             
                         } // Hstack
                         Text("")
@@ -94,22 +93,25 @@ struct QuestionView: View {
                             Spacer()
                             Image(systemName: "arrowshape.turn.up.left")
                             Text ("Reply" + "   ")
-                            Image(systemName: "hand.thumbsup")
+                            
+                            Image(systemName: "arrowshape.backward")
+                                .rotationEffect(.degrees(90))
+                             
                             Text("\(answer.like)" + " ")
-                            Image(systemName: "hand.thumbsdown")
+                            Image(systemName: "arrowshape.backward")
+                                .rotationEffect(.degrees(270))
                             Text("\(answer.dislike)")
                             
                         }
                         .foregroundColor(Color("AppBlu"))
                         
                     } // vstack
-                    .padding(.horizontal, 40) // distanzia i margini
+                    .padding(.horizontal, 40) 
                     .padding([.top, .bottom],20)
                     .background(.white)
-                    //                    .cornerRadius(8) 
-                    
+                
                 } //foreach
-            } // scroll view
+            }
             
             Section {
                 
