@@ -1,62 +1,28 @@
 //
-//  GeneralView.swift
+//  SubjectCategoryView.swift
 //  iFederico
 //
-//  Created by Fabrizio Vitale on 08/12/22.
+//  Created by Alessandro Esposito Vulgo Gigante on 13/12/22.
 //
 
 import SwiftUI
 
-struct GeneralView: View {
+struct SubjectCategoryView: View {
     @State private var searchText = ""
     @ObservedObject var myData = sharedData
-    
-    var filteredQuestion: ([Question], [Subject]) {
-        get {
-            if searchText.isEmpty { return (myData.questions, []) }
-            return ([],myData.subjects.filter{ subject in
-                (subject.name.lowercased().contains(searchText.lowercased()))
-            })
-        }
-        set {
-            //myData.questions = newValue.0
-            myData.subjects = newValue.1
-        }
-    }
     
     var body: some View {
         NavigationStack{
             ScrollView{
-
-                ForEach(filteredQuestion.1) {subject in
-                    
-                    NavigationLink(destination: SubjectCategoryView()) {
-                        
-                        ZStack(alignment: .leading) {
-                            Rectangle()
-                                .fill(.white)
-                            //.opacity(0.10)
-                                .frame(height: 50)
-                                .cornerRadius(20)
-                            VStack(alignment: .leading) {
-                                HStack {
-                                    Text (subject.name)
-                                        .bold()
-                                        .foregroundColor(Color(UIColor(named: "AppBlu")!))
-                                        .padding()
-                                }
-                            }
-                        }
-                    }
-                    
-                }
                 
-                ForEach(filteredQuestion.0) {question in
+                ForEach(myData.questions) {question in
                     
                     ZStack(alignment: .center) {
                         
                             Rectangle()
                                 .fill(.white)
+                            //.opacity(0.10)
+                            //.frame(height: 200)
                                 .frame(width: 362, height: 190)
                                 .cornerRadius(20)
                         
@@ -84,7 +50,13 @@ struct GeneralView: View {
                             Text(question.title)
                                 .font(.system(size: 24, weight: .bold, design: .default))
                                 
-            
+                                
+                                
+                                //.font(.title)
+                                //.font(.custom("SFPro", size: 25))
+                               // .bold()
+                            
+                            
                             
                             Text(question.body)
                                 .lineLimit(2)
@@ -114,7 +86,9 @@ struct GeneralView: View {
                         } .foregroundColor(.black)
                         
                             .padding(EdgeInsets(top: 0, leading: 30, bottom: 0, trailing: 20))
-
+//                            .scenePadding(.horizontal)
+                            
+                        
                     }
                     
                     
@@ -124,16 +98,38 @@ struct GeneralView: View {
                 
             }
             .background(Color(UIColor(named: "ScreenColor")!))
-            .searchable(text: $searchText, prompt: "Search by courses...")
+            .searchable(text: $searchText, prompt: "Search by questions...")
             
-            .navigationTitle("Study Space")
+            
+            .navigationTitle("Questions")
+            
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                                HStack {
+                                    Text("Analisi 1").font(.headline)
+                                }
+                            }
+                
+                ToolbarItem {
+                    Button {
+                        //test
+                    } label: {
+                        
+                        
+                        Text("New Post")
+                    }
+                }
+            }
             
         }
     }
     
 }
-struct GeneralView_Previews: PreviewProvider {
+
+struct SubjectCategoryView_Previews: PreviewProvider {
     static var previews: some View {
-        GeneralView()
+        SubjectCategoryView()
     }
 }
+
+
