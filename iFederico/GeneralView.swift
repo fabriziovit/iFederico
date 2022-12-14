@@ -61,8 +61,6 @@ struct GeneralView: View {
                                 .fill(.white)
                                 .frame(width: 362, height: 190)
                                 .cornerRadius(20)
-                            
-                            
                                 VStack(alignment: .leading, spacing: 5) {
                                     HStack {
                                         Text (question.profile.username)
@@ -82,19 +80,18 @@ struct GeneralView: View {
                                         Image(systemName: "paperclip")
                                             .foregroundColor(Color(UIColor(named: "AppBlu")!))
                                             .font(.custom("SFPro", size: 18))
-                                        Text("0")
+                                        Text(String(question.ACounter))
                                         +
                                         Text("  ")
                                         
                                         Image(systemName: "message")
                                             .foregroundColor(Color(UIColor(named: "AppBlu")!))
                                             .font(.custom("SFPro", size: 18))
-                                        Text("0")
+                                        Text(String(question.answers.count))
                                     }
                             } .foregroundColor(.black)
-                            
                                 .padding(EdgeInsets(top: 0, leading: 30, bottom: 0, trailing: 20))
-                            
+                                
                         }//navigation destination
 
                     }
