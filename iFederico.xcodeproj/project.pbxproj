@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		57CDB9E1294735EF00DAF7FE /* StudentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CDB9E0294735EF00DAF7FE /* StudentModel.swift */; };
 		57CDB9E32947360000DAF7FE /* StudentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CDB9E22947360000DAF7FE /* StudentData.swift */; };
+		5D2B661E2949D09A00321A65 /* loginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2B661D2949D09A00321A65 /* loginPage.swift */; };
 		A915F01929489E3700A89F38 /* SubjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A915F01829489E3700A89F38 /* SubjectView.swift */; };
 		A970BAC82940B1C0004AAFD0 /* iFedericoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A970BAC72940B1C0004AAFD0 /* iFedericoApp.swift */; };
 		A970BACA2940B1C0004AAFD0 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A970BAC92940B1C0004AAFD0 /* ContainerView.swift */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		57CDB9E0294735EF00DAF7FE /* StudentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentModel.swift; sourceTree = "<group>"; };
 		57CDB9E22947360000DAF7FE /* StudentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentData.swift; sourceTree = "<group>"; };
+		5D2B661D2949D09A00321A65 /* loginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginPage.swift; sourceTree = "<group>"; };
 		A915F01829489E3700A89F38 /* SubjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectView.swift; sourceTree = "<group>"; };
 		A970BAC42940B1C0004AAFD0 /* iFederico.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iFederico.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A970BAC72940B1C0004AAFD0 /* iFedericoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iFedericoApp.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				A970BAC72940B1C0004AAFD0 /* iFedericoApp.swift */,
 				A970BAC92940B1C0004AAFD0 /* ContainerView.swift */,
 				A997C590294275D10054CC91 /* GeneralView.swift */,
+				5D2B661D2949D09A00321A65 /* loginPage.swift */,
 				A915F01829489E3700A89F38 /* SubjectView.swift */,
 				FA09C0512947182F00828EE5 /* Model.swift */,
 				FA09C0552947185100828EE5 /* Data.swift */,
@@ -182,6 +185,7 @@
 				57CDB9E32947360000DAF7FE /* StudentData.swift in Sources */,
 				A970BACA2940B1C0004AAFD0 /* ContainerView.swift in Sources */,
 				E2A5267C2948929A0039E66F /* AddQuestionView.swift in Sources */,
+				5D2B661E2949D09A00321A65 /* loginPage.swift in Sources */,
 				A970BAC82940B1C0004AAFD0 /* iFedericoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
