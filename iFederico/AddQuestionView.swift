@@ -15,6 +15,8 @@ struct AddQuestionView: View {
     @State private var isPostedQuestion: Bool = false
     @Binding var isShowingAddQuestionView:Bool
     
+    @Environment(\.dismiss) private var dismiss
+    
     var body: some View {
         NavigationStack{
             NavigationLink(destination: SubjectView(tag: Subject(name: "Analisi 1", department: ""), isPostedQuestion: $isPostedQuestion), isActive: $isPostedQuestion) {
