@@ -27,7 +27,7 @@ struct SubjectView: View {
                 NavigationLink(destination: AddQuestionView(tag: Subject(name: "Analisi 1", department: ""),isShowingAddQuestionView: $isShowingAddQuestionView), isActive: $isShowingAddQuestionView) {
                 }
                 ForEach(myData.questions) {question in
-                    NavigationLink(destination: QuestionView()) {
+                    NavigationLink(destination: QuestionView(question: question)) {
                         ZStack(alignment: .center) {
                             
                             Rectangle()

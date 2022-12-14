@@ -51,7 +51,7 @@ struct GeneralView: View {
                     
                 }
                 ForEach(filteredQuestion.0) {question in
-                    NavigationLink(destination: QuestionView()) {
+                    NavigationLink(destination: QuestionView(question: question)) {
                         ZStack(alignment: .center) {
                             Rectangle()
                                 .fill(.white)

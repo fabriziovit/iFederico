@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct QuestionView: View {
+    @State var question: Question
     @ObservedObject var myData = sharedData
     @State var newAnswer : String = ""
     
@@ -22,27 +23,26 @@ struct QuestionView: View {
                         .frame(width: 362)
                         .cornerRadius(20)
                     
-                    
                     VStack(alignment: .leading, spacing: 5) {
                         HStack {
-                            Image(myData.questions[0].profile.nameImage)
+                            Image(question.profile.nameImage)
                                 .resizable()
                                 .frame(width: 20, height: 20)
                                 .clipShape(Circle())
                                 .shadow(radius: 10)
                             
-                            Text(myData.questions[0].profile.username)
+                            Text(question.profile.username)
                                 .font(.system(size: 17, weight: .bold, design: .default))
                             Spacer()
-                            Text(myData.questions[0].status)
+                            Text(question.status)
                             Text("-")
-                            Text(myData.questions[0].date.formatted(.dateTime.day().month().year()) )
+                            Text(question.date.formatted(.dateTime.day().month().year()) )
                         }
                         
-                        Text(myData.questions[0].title)
+                        Text(question.title)
                             .font(.system(size: 24, weight: .bold, design: .default))
                         
-                        Text(myData.questions[0].body)
+                        Text(question.body)
                             .font(.system(size: 17,design: .default))
                         Divider()
                         
@@ -50,7 +50,7 @@ struct QuestionView: View {
                             Spacer()
                             Image(systemName: "message")
                                 .font(.custom("SFPro", size: 18))
-                            Text("\(myData.questions[0].answers.count)" + "  ")
+                            Text("\(question.answers.count)" + "  ")
                                 .foregroundColor(.black)
                             
                             Image(systemName: "square.and.arrow.down")
@@ -74,7 +74,7 @@ struct QuestionView: View {
                 
                 //Risposte
                 
-                ForEach(myData.questions[0].answers) { answer in
+                ForEach(question.answers) { answer in
                     VStack(alignment: .leading) {
                         HStack {
                             Image(answer.profile.nameImage)
@@ -147,7 +147,7 @@ struct QuestionView: View {
 
 struct QuestionView_Previews: PreviewProvider {
     static var previews: some View {
-        QuestionView()
+        QuestionView(question: sharedData.questions[0])
     }
 }
 
