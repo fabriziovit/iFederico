@@ -37,7 +37,7 @@ struct SubjectView: View {
                         
                         VStack(alignment: .leading, spacing: 5) {
                             HStack {
-                                Text (question.userName)
+                                Text (question.profile.username)
                                     .font(.system(size: 17, weight: .bold, design: .default))
                                     
                                 Text (question.status)

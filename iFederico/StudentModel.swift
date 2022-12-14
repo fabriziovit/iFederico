@@ -9,9 +9,10 @@ import SwiftUI
 
 struct Student: Identifiable {
     var id = UUID() //identifica univocamente i learner
-    var nome: String
-    var cognome: String
+    var name: String
+    var surname: String
+    var username: String
     var department: String = "No department"
-    var descrizione: String = "No Description"
-    var imagename: String = "No imageName"
+    var description: String = "No Description"
+    var nameImage: String = "No imageName"
 }

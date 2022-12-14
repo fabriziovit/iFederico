@@ -18,7 +18,7 @@ struct ProfileView: View {
                     Text("Profile")
                         .font(.title)
                         .bold()
-                    Image(student.imagename)
+                    Image(student.nameImage)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width:280, height:280)
@@ -27,20 +27,14 @@ struct ProfileView: View {
                         .padding()
                     
                     HStack{
-                        Text(student.nome)
-                            .font(.title)
-                            .bold()
-                        +
-                        Text(" ")
-                        +
-                        Text(student.cognome)
+                        Text(student.username)
                             .font(.title)
                             .bold()
                     }
                     .foregroundColor(.blue)
                     Text(student.department)
                         .bold()
-                    Text(student.descrizione)
+                    Text(student.description)
                         .padding()
                 }
             }

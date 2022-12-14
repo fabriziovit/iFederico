@@ -12,7 +12,7 @@ import SwiftUI
 class SharableData: ObservableObject {
     
     @Published var students = [
-        Student (nome: "Walter", cognome: "White", department: "Mechatronic Engineering",descrizione: "This is my Bio, welcome to my profile. I’m a mechatronic engineering student of Federico II- Say my Name!", imagename: "Profilo")
+        Student (name: "Walter", surname: "White", username: "WWhite", department: "Mechatronic Engineering",description: "This is my Bio, welcome to my profile. I’m a mechatronic engineering student of Federico II- Say my Name!", nameImage: "Profilo")
     ]
 }
 var sharableData = SharableData()

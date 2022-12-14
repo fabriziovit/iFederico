@@ -9,18 +9,12 @@
 import SwiftUI
 
 struct QuestionView: View {
-    
     @ObservedObject var myData = sharedData
-    
     @State var newAnswer : String = ""
     
     var body: some View {
-        
         VStack{
-            
             ScrollView {
-                
-                
                 ZStack(alignment: .center){
                     
                     Rectangle()
@@ -30,24 +24,17 @@ struct QuestionView: View {
                     
                     
                     VStack(alignment: .leading, spacing: 5) {
-                        
-                        
                         HStack {
-                            myData.questions[0].im
+                            Image(myData.questions[0].profile.nameImage)
                                 .resizable()
                                 .frame(width: 20, height: 20)
                                 .clipShape(Circle())
                                 .shadow(radius: 10)
                             
-                            Text(myData.questions[0].userName)
+                            Text(myData.questions[0].profile.username)
                                 .font(.system(size: 17, weight: .bold, design: .default))
-                            
-                         
                             Spacer()
-                            
                             Text(myData.questions[0].status)
-                       
-                            
                             Text("-")
                             Text(myData.questions[0].date.formatted(.dateTime.day().month().year()) )
                         }
@@ -63,7 +50,7 @@ struct QuestionView: View {
                             Spacer()
                             Image(systemName: "message")
                                 .font(.custom("SFPro", size: 18))
-                            Text("\(myData.questions[0].AnswerCounter)" + "  ")
+                            Text("\(myData.questions[0].answers.count)" + "  ")
                                 .foregroundColor(.black)
                             
                             Image(systemName: "square.and.arrow.down")
@@ -78,7 +65,7 @@ struct QuestionView: View {
                     
                     
                     .padding(EdgeInsets(top: 10, leading: 30, bottom: 10, trailing: 28))
-                  
+                    
                     
                 }
                 
@@ -88,19 +75,15 @@ struct QuestionView: View {
                 //Risposte
                 
                 ForEach(myData.questions[0].answers) { answer in
-                    
-                    
                     VStack(alignment: .leading) {
-                        
                         HStack {
-                            answer.im
+                            Image(answer.profile.nameImage)
                                 .resizable()
                                 .frame(width: 20, height: 20)
                                 .clipShape(Circle())
-                            Text(answer.nickname)
+                            Text(answer.profile.username)
                                 .font(.system(size: 17, weight: .bold, design: .default))
                                 .foregroundColor(Color("AppBlu"))
-                            
                             Spacer()
                             
                         } // Hstack
@@ -136,7 +119,7 @@ struct QuestionView: View {
                         .foregroundColor(Color("AppBlu"))
                         
                     } // vstack
-                    .padding(EdgeInsets(top: 10, leading: 10, bottom: 15, trailing: 10))// 
+                    .padding(EdgeInsets(top: 10, leading: 10, bottom: 15, trailing: 10))//
                     .background(.white)
                     .cornerRadius(30)
                     .frame(width: 362)

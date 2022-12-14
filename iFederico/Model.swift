@@ -24,30 +24,25 @@ import SwiftUI
 
 
 struct Answer : Identifiable {
-    
     var id = UUID()
-    var nickname : String
+    var profile : Student
     var body : String
-    var date : Date = Date()
     var like : Int
     var dislike : Int
     var ACounter : Int //counter allegati
-    var im : Image
+    var date: Date
 }
 
 struct Question : Identifiable {
-    
     var id = UUID()
     var title: String
-    var userName : String
+    var profile : Student
     var body : String
-    var tag : String
-    var date : Date = Date()
+    var tag : Subject
     var status: String = "Open"
     var answers : [Answer]
     var ACounter : Int
-    var AnswerCounter : Int
-    var im : Image
+    var date: Date
 }
 
 struct Subject: Identifiable {
