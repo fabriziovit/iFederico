@@ -8,8 +8,24 @@
 import SwiftUI
 
 struct MessagesView: View {
+    
+    @ObservedObject var myData = sharedData
+    @State private var searchText = ""
+    
     var body: some View {
-        Text("Messages View")
+        NavigationStack {
+            ScrollView {
+                
+                
+                Text("No Message")
+                    .font(.custom("SFPro", size: 25) )
+                    .foregroundColor(.gray)
+                    .position(x: 195, y:250)
+                
+                    .navigationTitle("Messages")
+                    .searchable(text: $searchText)  
+            }
+        }
     }
 }
 
