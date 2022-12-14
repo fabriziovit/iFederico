@@ -53,67 +53,71 @@ struct GeneralView: View {
                 
                 ForEach(filteredQuestion.0) {question in
                     
-                    ZStack(alignment: .center) {
-                        
+                    NavigationLink(destination: QuestionView()) {
+                    
+                        ZStack(alignment: .center) {
+                            
                             Rectangle()
                                 .fill(.white)
                                 .frame(width: 362, height: 190)
                                 .cornerRadius(20)
-                        
-                        
-                        
-                        VStack(alignment: .leading, spacing: 5) {
-                            HStack {
-                                Text (question.userName)
-                                    .font(.system(size: 17, weight: .bold, design: .default))
+                            
+                            
+                            
+                            VStack(alignment: .leading, spacing: 5) {
+                                HStack {
+                                    Text (question.userName)
+                                        .font(.system(size: 17, weight: .bold, design: .default))
                                     
-                                Text (question.status)
+                                    Text (question.status)
                                     
+                                    
+                                    Text(" - ")
+                                    +
+                                    Text(question.date.formatted(.dateTime.day().month().year()))
+                                    
+                                    
+                                    
+                                } .foregroundColor(.black)
                                 
-                                Text(" - ")
-                                +
-                                Text(question.date.formatted(.dateTime.day().month().year()))
+                                
+                                
+                                
+                                Text(question.title)
+                                    .font(.system(size: 24, weight: .bold, design: .default))
+                                
+                                
+                                
+                                Text(question.body)
+                                    .lineLimit(2)
+                                    .font(.system(size: 17,design: .default))
+                                
+                                
+                                Divider()
+                                
+                                
+                                HStack {
                                     
+                                    
+                                    Image(systemName: "paperclip")
+                                        .foregroundColor(Color(UIColor(named: "AppBlu")!))
+                                        .font(.custom("SFPro", size: 18))
+                                    Text("0")
+                                    +
+                                    Text("  ")
+                                    
+                                    Image(systemName: "message")
+                                        .foregroundColor(Color(UIColor(named: "AppBlu")!))
+                                        .font(.custom("SFPro", size: 18))
+                                    Text("0")
+                                }
                                 
                                 
                             } .foregroundColor(.black)
                             
+                                .padding(EdgeInsets(top: 0, leading: 30, bottom: 0, trailing: 20))
                             
-                            
-                            
-                            Text(question.title)
-                                .font(.system(size: 24, weight: .bold, design: .default))
-                                
-            
-                            
-                            Text(question.body)
-                                .lineLimit(2)
-                                .font(.system(size: 17,design: .default))
-                                
-                            
-                            Divider()
-                              
-                            
-                            HStack {
-                                
-                                
-                                Image(systemName: "paperclip")
-                                    .foregroundColor(Color(UIColor(named: "AppBlu")!))
-                                    .font(.custom("SFPro", size: 18))
-                                Text("0")
-                                +
-                                Text("  ")
-                                
-                                Image(systemName: "message")
-                                    .foregroundColor(Color(UIColor(named: "AppBlu")!))
-                                    .font(.custom("SFPro", size: 18))
-                                Text("0")
-                            }
-                            
-                            
-                        } .foregroundColor(.black)
-                        
-                            .padding(EdgeInsets(top: 0, leading: 30, bottom: 0, trailing: 20))
+                        } //navigation destination
 
                     }
                     
