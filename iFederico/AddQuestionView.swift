@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct AddQuestionView: View {
-    
-    @State var titolo: String = ""
-    //@State var domanda: String = ""
-    @State private var domanda: String = "Write your question..."
-    
+    @ObservedObject var myData = sharedData
+    @State var title: String = ""
+    @State private var question: String = "Write your question..."
+    @State var tag: Subject = Subject(name: "", department: "")
+    @State private var isPostedQuestion: Bool = false
+    @Binding var isShowingAddQuestionView:Bool
     
     var body: some View {
         NavigationStack{
+            NavigationLink(destination: SubjectView(tag: Subject(name: "Analisi 1", department: ""), isPostedQuestion: $isPostedQuestion), isActive: $isPostedQuestion) {
+            }
             ScrollView{
                 Divider()
                 Text("Title")
@@ -31,7 +34,7 @@ struct AddQuestionView: View {
                         .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))
                         .shadow(radius: 1)
                     VStack(alignment: .leading){
-                        TextField("Title...", text: $titolo)
+                        TextField("Title...", text: $title)
                             .padding(.horizontal, 30)
                     }
                 }
@@ -50,15 +53,14 @@ struct AddQuestionView: View {
                         .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))
                         .shadow(radius: 1)
                     VStack(alignment: .leading){
-                        TextEditor(text: $domanda).padding(.all).opacity(domanda == "Write your question..." ? 0.25 : 1).onTapGesture {
-                            if domanda == "Write your question..."{
-                                domanda = ""
+                        TextEditor(text: $question).padding(.all).opacity(question == "Write your question..." ? 0.25 : 1).onTapGesture {
+                            if question == "Write your question..."{
+                                question = ""
                             }
                         }.padding(.horizontal, 12)
-                        //TextField("Write a Question...", text: $domanda)
-                        //.position(x: 196, y: 25)
-                        //.padding()
                     }
+                }.onAppear(){
+                    isShowingAddQuestionView = false
                 }
             }
             .background(Color(UIColor(named: "ScreenColor")!))
@@ -66,7 +68,8 @@ struct AddQuestionView: View {
             .toolbar{
                 ToolbarItem{
                     Button{
-                        //bottone per chiudere tastiera
+                        addQuestion(title: title, profile: Student(name: "Walter", surname: "White", username: "WWhite"), body: question, tag: tag, answers: [], ACounter: 0, AnswerCounter: 0)
+                        isPostedQuestion = true
                     } label: {
                         Text("Post")
                     }
@@ -74,10 +77,16 @@ struct AddQuestionView: View {
             }
         }
     }
+    
+    func addQuestion(title: String, profile : Student, body : String, tag : Subject, answers : [Answer], ACounter : Int, AnswerCounter : Int){
+        let newQuestion = Question(title: title, profile: profile, body: body, tag: tag, answers: [], ACounter: 0, date: Date())
+        
+        myData.questions.insert(newQuestion, at: 0)
+    }
 }
 
 struct AddQuestionView_Previews: PreviewProvider {
     static var previews: some View {
-        AddQuestionView()
+        AddQuestionView(isShowingAddQuestionView: Binding<Bool>.constant(true))
     }
 }
