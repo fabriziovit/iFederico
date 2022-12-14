@@ -11,7 +11,7 @@ let OurBlue = Color(red: 25/255 ,green: 122/255 ,blue: 164/255 , opacity: 1.0)
 let Sfondo = Color(red: 236/255, green: 236/255, blue: 236/255 , opacity: 0.85)
 
 
-struct loginPage: View {
+struct LoginView: View {
     
     @State var loginame : String = ""
     @State var password : String = ""
@@ -66,10 +66,6 @@ struct loginPage: View {
         }
     }
     
-    //SPAZIO TRA LE STRUCT E FUNC
-    // SOLO PER ORDINE
-    
-    
     struct PasswordSecureField : View {
         @Binding var password: String
         var body: some View {
@@ -93,7 +89,7 @@ struct loginPage: View {
         }
     }
     func LoginButton(){
-        if loginame == "Adriano" && password == "1223334444"{
+        if loginame == "WWhite" && password == "12345"{
             moveToNewView = true
         }else{
             authenticationFail = true
@@ -103,9 +99,9 @@ struct loginPage: View {
     }
     
 }
-struct loginPage_Previews: PreviewProvider {
+struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        loginPage()
+        LoginView()
     }
 }
 
