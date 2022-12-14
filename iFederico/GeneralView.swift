@@ -50,18 +50,15 @@ struct GeneralView: View {
                     }
                     
                 }
-                
                 ForEach(filteredQuestion.0) {question in
-                    
                     NavigationLink(destination: QuestionView()) {
-                    
                         ZStack(alignment: .center) {
-                            
                             Rectangle()
                                 .fill(.white)
                                 .frame(width: 362, height: 190)
                                 .cornerRadius(20)
                                 VStack(alignment: .leading, spacing: 5) {
+                                    // line 1
                                     HStack {
                                         Text (question.profile.username)
                                             .font(.system(size: 17, weight: .bold, design: .default))
@@ -70,12 +67,17 @@ struct GeneralView: View {
                                         +
                                         Text(question.date.formatted(.dateTime.day().month().year()))
                                     } .foregroundColor(.black)
+                                    
                                     Text(question.title)
                                         .font(.system(size: 24, weight: .bold, design: .default))
+                                        .multilineTextAlignment(.leading)
+                                    
                                     Text(question.body)
                                         .lineLimit(2)
                                         .font(.system(size: 17,design: .default))
+                                        .multilineTextAlignment(.leading)
                                     Divider()
+                                    
                                     HStack {
                                         Image(systemName: "paperclip")
                                             .foregroundColor(Color(UIColor(named: "AppBlu")!))
@@ -91,20 +93,12 @@ struct GeneralView: View {
                                     }
                             } .foregroundColor(.black)
                                 .padding(EdgeInsets(top: 0, leading: 30, bottom: 0, trailing: 20))
-                                
-                        }//navigation destination
-
-                    }
-                    
-                    
-                    
+                        }
+                    }//navigation destination
                 }
-                
-                
             }
             .background(Color(UIColor(named: "ScreenColor")!))
             .searchable(text: $searchText, prompt: "Search by courses...")
-            
             .navigationTitle("Study Space")
             
         }
