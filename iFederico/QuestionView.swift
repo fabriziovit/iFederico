@@ -42,11 +42,11 @@ struct QuestionView: View {
                             Text(myData.questions[0].userName)
                                 .font(.system(size: 17, weight: .bold, design: .default))
                             
-                            //                            .foregroundColor(Color("AppBlu"))
+                         
                             Spacer()
                             
                             Text(myData.questions[0].status)
-                            //                            .italic()
+                       
                             
                             Text("-")
                             Text(myData.questions[0].date.formatted(.dateTime.day().month().year()) )
@@ -78,11 +78,7 @@ struct QuestionView: View {
                     
                     
                     .padding(EdgeInsets(top: 10, leading: 30, bottom: 10, trailing: 28))
-                    /*  .padding()
-                     //                .padding([.top, .bottom], 20)
-                     .background(.white)
-                     .frame(width: 362)
-                     .cornerRadius(20) */
+                  
                     
                 }
                 
@@ -140,8 +136,7 @@ struct QuestionView: View {
                         .foregroundColor(Color("AppBlu"))
                         
                     } // vstack
-                    .padding(EdgeInsets(top: 10, leading: 10, bottom: 15, trailing: 10))// distanzia i margini
-                    //                    .padding([.top, .bottom],20)
+                    .padding(EdgeInsets(top: 10, leading: 10, bottom: 15, trailing: 10))// 
                     .background(.white)
                     .cornerRadius(30)
                     .frame(width: 362)
@@ -153,7 +148,7 @@ struct QuestionView: View {
                 
                 TextField("Write your answer...", text: $newAnswer)
                     .padding()
-                //                    .frame(width: 350)
+                
             } //section
             .frame(width: 362)
             .background(.white)
