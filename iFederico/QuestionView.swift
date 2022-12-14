@@ -12,9 +12,11 @@ struct QuestionView: View {
     @State var question: Question
     @ObservedObject var myData = sharedData
     @State var newAnswer : String = ""
+    @State var isAnswerViewPresented: Bool = false
     
     var body: some View {
         VStack{
+//            NavigationLink(destination: AddAnswerView(question: question, isAnswerViewPresented: $isAnswerViewPresented), isActive: $isAnswerViewPresented){}
             ScrollView {
                 ZStack(alignment: .center){
                     
@@ -65,8 +67,6 @@ struct QuestionView: View {
                     
                     
                     .padding(EdgeInsets(top: 10, leading: 30, bottom: 10, trailing: 28))
-                    
-                    
                 }
                 
                 Text("")
@@ -90,11 +90,8 @@ struct QuestionView: View {
                         Text("")
                         Text(answer.body)
                             .bold()
-                        
                         Divider()
-                        
                         HStack {
-                            
                             Text(answer.date.formatted(.dateTime.day().month().year()) )
                                 .font(.custom("SFPro", size: 15))
                                 .foregroundColor(.black)
@@ -115,9 +112,7 @@ struct QuestionView: View {
                                 .foregroundColor(.black)
                             
                         } //Hstack
-                        
                         .foregroundColor(Color("AppBlu"))
-                        
                     } // vstack
                     .padding(EdgeInsets(top: 10, leading: 10, bottom: 15, trailing: 10))//
                     .background(.white)
@@ -128,9 +123,10 @@ struct QuestionView: View {
             } // scrollview
             
             Section {
-                
                 TextField("Write your answer...", text: $newAnswer)
-                    .padding()
+                    .padding().onTapGesture {
+                        isAnswerViewPresented = true
+                    }
                 
             } //section
             .frame(width: 362)
@@ -141,7 +137,9 @@ struct QuestionView: View {
         } //vstack
         .frame(width: 400)
         .background(Color("ScreenColor"))
-        
+        .sheet(isPresented: $isAnswerViewPresented){
+            AddAnswerView(question: question)
+        }
     }//body
 }//view
 

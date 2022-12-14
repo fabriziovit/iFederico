@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContainerView: View {
+    @State var profile: Student
+    
     var body: some View {
         TabView{
             GeneralView()
@@ -26,11 +28,12 @@ struct ContainerView: View {
                     Text("Profile")
                 }
         }
+        .navigationBarBackButtonHidden()
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContainerView()
+        ContainerView( profile: sharableData.students[0])
     }
 }
