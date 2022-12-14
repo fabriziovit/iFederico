@@ -22,7 +22,8 @@ struct QuestionView: View {
                     
                     Rectangle()
                         .fill(.white)
-                        .frame(width: 362)
+                    //.opacity(0.10)
+                        .frame(height: 200)
                         .cornerRadius(20)
                     
                     VStack(alignment: .leading, spacing: 5) {
