@@ -19,7 +19,7 @@ struct LoginView: View {
     @State var authenticationFail: Bool = false
     @State var authenticationSucced: Bool = true
     @State var moveToNewView = false
-    
+    @Binding var isAnimationRunning:Bool
     var body: some View {
         NavigationView{
             ZStack{
@@ -65,7 +65,8 @@ struct LoginView: View {
             }
         }.onAppear(){
             DispatchQueue.main.asyncAfter(deadline: .now() + 5){
-                launchScreenManager.dismiss()
+                isAnimationRunning = false
+//                launchScreenManager.dismiss()
             }
         }
     }
@@ -107,7 +108,7 @@ struct LoginView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        LoginView( isAnimationRunning: Binding<Bool>.constant(true))
     }
 }
 

@@ -20,11 +20,19 @@ struct SubjectView: View {
     @State var tag: Subject
     @State private var isShowingAddQuestionView: Bool = false
     
+    var filtereQuestionByExams: [Question]{
+        return myData.questions.filter { question in
+            question.tag.name == tag.name
+        }
+    }
+    
     var filteredQuestion: [Question] {
         get {
-            return myData.questions.filter { question in
-                question.tag.name == tag.name
+            if searchText.isEmpty { return filtereQuestionByExams}
+            return filtereQuestionByExams.filter{
+                question in (question.title.lowercased().contains(searchText.lowercased()) || question.body.lowercased().contains(searchText.lowercased()))
             }
+            
         }
         set {
             myData.questions = newValue
@@ -35,7 +43,7 @@ struct SubjectView: View {
         NavigationStack{
             ScrollView{
                 ForEach(filteredQuestion) {question in
-                    NavigationLink(destination: QuestionView(question: question)) {
+                    NavigationLink(destination: QuestionView(index: question.index)) {
                         ZStack(alignment: .center) {
                             
                             Rectangle()
@@ -81,7 +89,7 @@ struct SubjectView: View {
             .searchable(text: $searchText, prompt: "Search by questions...")
             .navigationTitle("Questions")
             .sheet(isPresented: $isShowingAddQuestionView) {
-                AddQuestionView()
+                AddQuestionView(tag: tag)
             }
             .toolbar {
                 ToolbarItem(placement: .principal) {

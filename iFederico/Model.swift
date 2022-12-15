@@ -31,6 +31,7 @@ struct Answer : Identifiable {
     var dislike : Int
     var ACounter : Int //counter allegati
     var date: Date
+    var index: Int
 }
 
 struct Question : Identifiable {
@@ -43,6 +44,7 @@ struct Question : Identifiable {
     var answers : [Answer]
     var ACounter : Int
     var date: Date
+    var index: Int
 }
 
 struct Subject: Identifiable {

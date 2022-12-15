@@ -10,13 +10,12 @@ import SwiftUI
 @main
 struct iFedericoApp: App {
     @StateObject var launchScreenManager = LaunchScreenManager()
-    
+    @State var isLoginAnimationRunning = true
     var body: some Scene {
         WindowGroup {
             ZStack{
-                LoginView()
-                
-                if launchScreenManager.state != .completed{
+                LoginView( isAnimationRunning: $isLoginAnimationRunning)
+                if isLoginAnimationRunning{
                     LaunchScreenView()
                 }
             }.environmentObject(launchScreenManager)

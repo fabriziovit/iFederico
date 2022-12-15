@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddAnswerView: View {
     @State var myData = sharedData
-    @State var question: Question
+    @State var index: Int
     @State var profile: Student = Student (name: "Walter", surname: "White", username: "WWhite", department: "Mechatronic Engineering",description: "This is my Bio, welcome to my profile. I’m a mechatronic engineering student of Federico II- Say my Name!", nameImage: "Profilo")
     @State private var answer: String = "Write your answer..."
     @State private var isAnswerPosted: Bool = false
@@ -52,10 +52,8 @@ struct AddAnswerView: View {
             .toolbar{
                 ToolbarItem{
                     Button{
-                        //bottone per chiudere tastiera
-                        addAnswer(question: question, body: answer, profile: profile)
+                        addAnswer(index: index, body: answer, profile: profile)
                         dismiss()
-                        //updateAnswer
                     } label: {
                         Text("Reply")
                     }
@@ -64,20 +62,14 @@ struct AddAnswerView: View {
         }
     }
     
-    func addAnswer(question: Question, body: String, profile: Student){
-        var index: Int = 0
-        let newAnswer = Answer(profile: profile, body: body, like: 0, dislike: 0, ACounter: 0, date: Date())
-        myData.questions.forEach{questionInd in
-            if questionInd.id == question.id{
-                myData.questions[index].answers.append(newAnswer)
-            }
-            index = index + 1
-        }
+    func addAnswer(index: Int, body: String, profile: Student){
+        let newAnswer = Answer(profile: profile, body: body, like: 0, dislike: 0, ACounter: 0, date: Date(), index: myData.questions[index].answers.count)
+        myData.questions[index].answers.append(newAnswer)
     }
 }
 
 struct AddAnswerView_Previews: PreviewProvider {
     static var previews: some View {
-        AddAnswerView(question: sharedData.questions[0])
+        AddAnswerView(index: 0)
     }
 }

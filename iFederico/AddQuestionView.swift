@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AddQuestionView: View {
     @ObservedObject var myData = sharedData
+    //@State var index: Int
     @State var title: String = ""
     @State private var question: String = "Write your question..."
     @State var tag: Subject = Subject(name: "", department: "")
@@ -79,7 +80,7 @@ struct AddQuestionView: View {
     }
     
     func addQuestion(title: String, profile : Student, body : String, tag : Subject, answers : [Answer], ACounter : Int, AnswerCounter : Int){
-        let newQuestion = Question(title: title, profile: profile, body: body, tag: tag, answers: [], ACounter: 0, date: Date())
+        let newQuestion = Question(title: title, profile: profile, body: body, tag: tag, answers: [], ACounter: 0, date: Date(), index: myData.questions.count)
         
         myData.questions.insert(newQuestion, at: 0)
     }
@@ -87,6 +88,6 @@ struct AddQuestionView: View {
 
 struct AddQuestionView_Previews: PreviewProvider {
     static var previews: some View {
-        AddQuestionView()
+        AddQuestionView(tag: Subject(name: "Analisi I", department: ""))
     }
 }

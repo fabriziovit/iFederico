@@ -19,7 +19,6 @@ struct GeneralView: View {
             })
         }
         set {
-            //myData.questions = newValue.0
             myData.subjects = newValue.1
         }
     }
@@ -27,15 +26,12 @@ struct GeneralView: View {
     var body: some View {
         NavigationStack{
             ScrollView{
-
                 ForEach(filteredQuestion.1) {subject in
-                    
                     NavigationLink(destination: SubjectView(tag: subject)) {
-                        
                         ZStack(alignment: .leading) {
                             Rectangle()
                                 .fill(.white)
-                            .opacity(0.10)
+                                .opacity(0.10)
                                 .frame(height: 50)
                                 .cornerRadius(20)
                             VStack(alignment: .leading) {
@@ -48,49 +44,48 @@ struct GeneralView: View {
                             }
                         }
                     }
-                    
                 }
                 ForEach(filteredQuestion.0) {question in
-                    NavigationLink(destination: QuestionView(question: question)) {
+                    NavigationLink(destination: QuestionView(index: question.index)) {
                         ZStack(alignment: .center) {
                             Rectangle()
                                 .fill(.white)
                                 .frame(width: 362, height: 190)
                                 .cornerRadius(20)
-                                VStack(alignment: .leading, spacing: 5) {
-                                    // line 1
-                                    HStack {
-                                        Text (question.profile.username)
-                                            .font(.system(size: 17, weight: .bold, design: .default))
-                                        Text (question.status)
-                                        Text(" - ")
-                                        +
-                                        Text(question.date.formatted(.dateTime.day().month().year()))
-                                    } .foregroundColor(.black)
+                            VStack(alignment: .leading, spacing: 5) {
+                                // line 1
+                                HStack {
+                                    Text (question.profile.username)
+                                        .font(.system(size: 17, weight: .bold, design: .default))
+                                    Text (question.status)
+                                    Text(" - ")
+                                    +
+                                    Text(question.date.formatted(.dateTime.day().month().year()))
+                                } .foregroundColor(.black)
+                                
+                                Text(question.title)
+                                    .font(.system(size: 24, weight: .bold, design: .default))
+                                    .multilineTextAlignment(.leading)
+                                
+                                Text(question.body)
+                                    .lineLimit(2)
+                                    .font(.system(size: 17,design: .default))
+                                    .multilineTextAlignment(.leading)
+                                Divider()
+                                
+                                HStack {
+                                    Image(systemName: "paperclip")
+                                        .foregroundColor(Color(UIColor(named: "AppBlu")!))
+                                        .font(.custom("SFPro", size: 18))
+                                    Text(String(question.ACounter))
+                                    +
+                                    Text("  ")
                                     
-                                    Text(question.title)
-                                        .font(.system(size: 24, weight: .bold, design: .default))
-                                        .multilineTextAlignment(.leading)
-                                    
-                                    Text(question.body)
-                                        .lineLimit(2)
-                                        .font(.system(size: 17,design: .default))
-                                        .multilineTextAlignment(.leading)
-                                    Divider()
-                                    
-                                    HStack {
-                                        Image(systemName: "paperclip")
-                                            .foregroundColor(Color(UIColor(named: "AppBlu")!))
-                                            .font(.custom("SFPro", size: 18))
-                                        Text(String(question.ACounter))
-                                        +
-                                        Text("  ")
-                                        
-                                        Image(systemName: "message")
-                                            .foregroundColor(Color(UIColor(named: "AppBlu")!))
-                                            .font(.custom("SFPro", size: 18))
-                                        Text(String(question.answers.count))
-                                    }
+                                    Image(systemName: "message")
+                                        .foregroundColor(Color(UIColor(named: "AppBlu")!))
+                                        .font(.custom("SFPro", size: 18))
+                                    Text(String(question.answers.count))
+                                }
                             } .foregroundColor(.black)
                                 .padding(EdgeInsets(top: 0, leading: 30, bottom: 0, trailing: 20))
                         }
@@ -103,8 +98,9 @@ struct GeneralView: View {
             
         }
     }
-    
 }
+
+
 struct GeneralView_Previews: PreviewProvider {
     static var previews: some View {
         GeneralView()

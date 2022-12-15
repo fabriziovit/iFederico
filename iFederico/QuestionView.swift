@@ -9,14 +9,13 @@
 import SwiftUI
 
 struct QuestionView: View {
-    @State var question: Question
+    @State var index: Int
     @ObservedObject var myData = sharedData
     @State var newAnswer : String = ""
     @State var isAnswerViewPresented: Bool = false
-        
+    
     var body: some View {
         VStack{
-//            NavigationLink(destination: AddAnswerView(question: question, isAnswerViewPresented: $isAnswerViewPresented), isActive: $isAnswerViewPresented){}
             ScrollView {
                 ZStack(alignment: .center){
                     
@@ -27,24 +26,24 @@ struct QuestionView: View {
                     
                     VStack(alignment: .leading, spacing: 5) {
                         HStack {
-                            Image(question.profile.nameImage)
+                            Image(myData.questions[index].profile.nameImage)
                                 .resizable()
                                 .frame(width: 20, height: 20)
                                 .clipShape(Circle())
                                 .shadow(radius: 10)
                             
-                            Text(question.profile.username)
+                            Text(myData.questions[index].profile.username)
                                 .font(.system(size: 17, weight: .bold, design: .default))
                             Spacer()
-                            Text(question.status)
+                            Text(myData.questions[index].status)
                             Text("-")
-                            Text(question.date.formatted(.dateTime.day().month().year()) )
+                            Text(myData.questions[index].date.formatted(.dateTime.day().month().year()) )
                         }
                         
-                        Text(question.title)
+                        Text(myData.questions[index].title)
                             .font(.system(size: 24, weight: .bold, design: .default))
                         
-                        Text(question.body)
+                        Text(myData.questions[index].body)
                             .font(.system(size: 17,design: .default))
                         Divider()
                         
@@ -52,7 +51,7 @@ struct QuestionView: View {
                             Spacer()
                             Image(systemName: "message")
                                 .font(.custom("SFPro", size: 18))
-                            Text("\(question.answers.count)" + "  ")
+                            Text("\(myData.questions[index].answers.count)" + "  ")
                                 .foregroundColor(.black)
                             
                             Image(systemName: "square.and.arrow.down")
@@ -72,7 +71,7 @@ struct QuestionView: View {
                 
                 //Risposte
                 
-                ForEach(question.answers) { answer in
+                ForEach(myData.questions[index].answers) { answer in
                     VStack(alignment: .leading) {
                         HStack {
                             Image(answer.profile.nameImage)
@@ -136,7 +135,7 @@ struct QuestionView: View {
         .frame(width: 400)
         .background(Color("ScreenColor"))
         .sheet(isPresented: $isAnswerViewPresented){
-            AddAnswerView(myData: myData, question: question)
+            AddAnswerView(index: index)
         }
         
     }//body
@@ -144,7 +143,7 @@ struct QuestionView: View {
 
 struct QuestionView_Previews: PreviewProvider {
     static var previews: some View {
-        QuestionView(question: sharedData.questions[0])
+        QuestionView(index: 0)
     }
 }
 
