@@ -9,9 +9,17 @@ import SwiftUI
 
 @main
 struct iFedericoApp: App {
+    @StateObject var launchScreenManager = LaunchScreenManager()
+    
     var body: some Scene {
         WindowGroup {
-            LoginView()
+            ZStack{
+                LoginView()
+                
+                if launchScreenManager.state != .completed{
+                    LaunchScreenView()
+                }
+            }.environmentObject(launchScreenManager)
         }
     }
 }

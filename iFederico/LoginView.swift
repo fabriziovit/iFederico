@@ -1,8 +1,8 @@
 //
-//  loginPage.swift
-//  forum
+//  LoginView.swift
+//  iFederico
 //
-//  Created by adriano prota on 08/12/22.
+//  Created by Fabrizio Vitale on 15/12/22.
 //
 
 import SwiftUI
@@ -11,6 +11,7 @@ let OurBlue = Color(red: 25/255 ,green: 122/255 ,blue: 164/255 , opacity: 1.0)
 let Background = Color(red: 236/255, green: 236/255, blue: 236/255 , opacity: 0.85)
 
 struct LoginView: View {
+    @EnvironmentObject var launchScreenManager: LaunchScreenManager
     @ObservedObject var myStudentData = sharableData
     @State var loginame : String = ""
     @State var password : String = ""
@@ -29,6 +30,7 @@ struct LoginView: View {
                         .font(.largeTitle)
                         .fontWeight(.semibold)
                         .padding(.vertical,5)
+                    //Image("logo").renderingMode(.)
                     
                     UsernameTextField(username: $loginame)
                         .padding(.vertical, 20)
@@ -60,6 +62,10 @@ struct LoginView: View {
                     
                 }
                 
+            }
+        }.onAppear(){
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5){
+                launchScreenManager.dismiss()
             }
         }
     }
@@ -104,6 +110,7 @@ struct LoginView_Previews: PreviewProvider {
         LoginView()
     }
 }
+
 
 
 
