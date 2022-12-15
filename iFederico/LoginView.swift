@@ -4,8 +4,9 @@
 //
 //  Created by Fabrizio Vitale on 15/12/22.
 //
-
+import Foundation
 import SwiftUI
+
 let LightGray = Color(red: 239.0/255.0, green: 243.0/255.0,blue: 244.0/255.0, opacity: 64.0)
 let OurBlue = Color(red: 25/255 ,green: 122/255 ,blue: 164/255 , opacity: 1.0)
 let Background = Color(red: 236/255, green: 236/255, blue: 236/255 , opacity: 0.85)
@@ -30,8 +31,7 @@ struct LoginView: View {
                         .font(.largeTitle)
                         .fontWeight(.semibold)
                         .padding(.vertical,5)
-                    //Image("logo").renderingMode(.)
-                    
+                    Image("logo")                    
                     UsernameTextField(username: $loginame)
                         .padding(.vertical, 20)
                     PasswordSecureField(password: $password)

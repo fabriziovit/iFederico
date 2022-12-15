@@ -34,67 +34,67 @@ struct SubjectView: View {
     var body: some View {
         NavigationStack{
             ScrollView{
-            }
-            ForEach(filteredQuestion) {question in
-                NavigationLink(destination: QuestionView(question: question)) {
-                    ZStack(alignment: .center) {
-                        
-                        Rectangle()
-                            .fill(.white)
-                            .frame(width: 362, height: 190)
-                            .cornerRadius(20)
-                        VStack(alignment: .leading, spacing: 5) {
-                            HStack {
-                                Text (question.profile.username)
-                                    .font(.system(size: 17, weight: .bold, design: .default))
-                                
-                                Text (question.status)
-                                Text(" - ")
-                                +
-                                Text(question.date.formatted(.dateTime.day().month().year()))
+                ForEach(filteredQuestion) {question in
+                    NavigationLink(destination: QuestionView(question: question)) {
+                        ZStack(alignment: .center) {
+                            
+                            Rectangle()
+                                .fill(.white)
+                                .frame(width: 362, height: 190)
+                                .cornerRadius(20)
+                            VStack(alignment: .leading, spacing: 5) {
+                                HStack {
+                                    Text (question.profile.username)
+                                        .font(.system(size: 17, weight: .bold, design: .default))
+                                    
+                                    Text (question.status)
+                                    Text(" - ")
+                                    +
+                                    Text(question.date.formatted(.dateTime.day().month().year()))
+                                } .foregroundColor(.black)
+                                Text(question.title)
+                                    .font(.system(size: 24, weight: .bold, design: .default)).multilineTextAlignment(.leading)
+                                Text(question.body)
+                                    .lineLimit(2)
+                                    .font(.system(size: 17,design: .default)).multilineTextAlignment(.leading)
+                                Divider()
+                                HStack {
+                                    Image(systemName: "paperclip")
+                                        .foregroundColor(Color(UIColor(named: "AppBlu")!))
+                                        .font(.custom("SFPro", size: 18))
+                                    Text(String(question.ACounter))
+                                    +
+                                    Text("  ")
+                                    Image(systemName: "message")
+                                        .foregroundColor(Color(UIColor(named: "AppBlu")!))
+                                        .font(.custom("SFPro", size: 18))
+                                    Text(String(question.answers.count))
+                                }
                             } .foregroundColor(.black)
-                            Text(question.title)
-                                .font(.system(size: 24, weight: .bold, design: .default)).multilineTextAlignment(.leading)
-                            Text(question.body)
-                                .lineLimit(2)
-                                .font(.system(size: 17,design: .default)).multilineTextAlignment(.leading)
-                            Divider()
-                            HStack {
-                                Image(systemName: "paperclip")
-                                    .foregroundColor(Color(UIColor(named: "AppBlu")!))
-                                    .font(.custom("SFPro", size: 18))
-                                Text(String(question.ACounter))
-                                +
-                                Text("  ")
-                                Image(systemName: "message")
-                                    .foregroundColor(Color(UIColor(named: "AppBlu")!))
-                                    .font(.custom("SFPro", size: 18))
-                                Text(String(question.answers.count))
-                            }
-                        } .foregroundColor(.black)
-                        
-                            .padding(EdgeInsets(top: 0, leading: 30, bottom: 0, trailing: 20))
-                    }//ZStack
+                            
+                                .padding(EdgeInsets(top: 0, leading: 30, bottom: 0, trailing: 20))
+                        }//ZStack
+                    }
                 }
             }
-        }
-        .background(Color(UIColor(named: "ScreenColor")!))
-        .searchable(text: $searchText, prompt: "Search by questions...")
-        .navigationTitle("Questions")
-        .sheet(isPresented: $isShowingAddQuestionView) {
-            AddQuestionView()
-        }
-        .toolbar {
-            ToolbarItem(placement: .principal) {
-                HStack {
-                    Text(tag.name).font(.headline)
-                }
+            .background(Color(UIColor(named: "ScreenColor")!))
+            .searchable(text: $searchText, prompt: "Search by questions...")
+            .navigationTitle("Questions")
+            .sheet(isPresented: $isShowingAddQuestionView) {
+                AddQuestionView()
             }
-            ToolbarItem {
-                Button {
-                    isShowingAddQuestionView = true
-                } label: {
-                    Text("New Post")
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    HStack {
+                        Text(tag.name).font(.headline)
+                    }
+                }
+                ToolbarItem {
+                    Button {
+                        isShowingAddQuestionView = true
+                    } label: {
+                        Text("New Post")
+                    }
                 }
             }
         }
