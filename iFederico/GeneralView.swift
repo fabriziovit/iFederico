@@ -30,7 +30,7 @@ struct GeneralView: View {
 
                 ForEach(filteredQuestion.1) {subject in
                     
-                    NavigationLink(destination: SubjectView(isPostedQuestion: Binding<Bool>.constant(false))) {
+                    NavigationLink(destination: SubjectView(tag: subject)) {
                         
                         ZStack(alignment: .leading) {
                             Rectangle()

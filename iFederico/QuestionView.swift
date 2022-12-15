@@ -13,7 +13,7 @@ struct QuestionView: View {
     @ObservedObject var myData = sharedData
     @State var newAnswer : String = ""
     @State var isAnswerViewPresented: Bool = false
-    
+        
     var body: some View {
         VStack{
 //            NavigationLink(destination: AddAnswerView(question: question, isAnswerViewPresented: $isAnswerViewPresented), isActive: $isAnswerViewPresented){}
@@ -22,7 +22,6 @@ struct QuestionView: View {
                     
                     Rectangle()
                         .fill(.white)
-                    //.opacity(0.10)
                         .frame(height: 200)
                         .cornerRadius(20)
                     
@@ -65,8 +64,6 @@ struct QuestionView: View {
                         
                         
                     } // vstack
-                    
-                    
                     .padding(EdgeInsets(top: 10, leading: 30, bottom: 10, trailing: 28))
                 }
                 
@@ -114,7 +111,7 @@ struct QuestionView: View {
                             
                         } //Hstack
                         .foregroundColor(Color("AppBlu"))
-                    } // vstack
+                    }// vstack
                     .padding(EdgeInsets(top: 10, leading: 10, bottom: 15, trailing: 10))//
                     .background(.white)
                     .cornerRadius(30)
@@ -139,8 +136,9 @@ struct QuestionView: View {
         .frame(width: 400)
         .background(Color("ScreenColor"))
         .sheet(isPresented: $isAnswerViewPresented){
-            AddAnswerView(question: question)
+            AddAnswerView(myData: myData, question: question)
         }
+        
     }//body
 }//view
 

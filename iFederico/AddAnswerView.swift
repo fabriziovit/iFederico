@@ -12,15 +12,12 @@ struct AddAnswerView: View {
     @State var question: Question
     @State var profile: Student = Student (name: "Walter", surname: "White", username: "WWhite", department: "Mechatronic Engineering",description: "This is my Bio, welcome to my profile. I’m a mechatronic engineering student of Federico II- Say my Name!", nameImage: "Profilo")
     @State private var answer: String = "Write your answer..."
-    //    @Binding var isAnswerViewPresented: Bool
     @State private var isAnswerPosted: Bool = false
     
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
-        //NavigationLink(destination: QuestionView(question: question), isActive: $isAnswerViewPresented){}
         NavigationStack{
-            //          NavigationLink(destination: QuestionView(question: question), isActive: $isAnswerViewPresented){}
             ScrollView{
                 Divider().padding(.bottom, 10)
                 Text("Answer")
@@ -58,7 +55,7 @@ struct AddAnswerView: View {
                         //bottone per chiudere tastiera
                         addAnswer(question: question, body: answer, profile: profile)
                         dismiss()
-                        //isAnswerViewPresented = true
+                        //updateAnswer
                     } label: {
                         Text("Reply")
                     }
@@ -72,7 +69,7 @@ struct AddAnswerView: View {
         let newAnswer = Answer(profile: profile, body: body, like: 0, dislike: 0, ACounter: 0, date: Date())
         myData.questions.forEach{questionInd in
             if questionInd.id == question.id{
-                sharedData.questions[index].answers.append(newAnswer)
+                myData.questions[index].answers.append(newAnswer)
             }
             index = index + 1
         }
@@ -81,7 +78,6 @@ struct AddAnswerView: View {
 
 struct AddAnswerView_Previews: PreviewProvider {
     static var previews: some View {
-        //        AddAnswerView(question: sharedData.questions[0], isAnswerViewPresented: Binding<Bool>.constant(true))
         AddAnswerView(question: sharedData.questions[0])
     }
 }

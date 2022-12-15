@@ -13,13 +13,12 @@ struct AddQuestionView: View {
     @State private var question: String = "Write your question..."
     @State var tag: Subject = Subject(name: "", department: "")
     @State private var isPostedQuestion: Bool = false
-    @Binding var isShowingAddQuestionView:Bool
     
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         NavigationStack{
-            NavigationLink(destination: SubjectView(tag: Subject(name: "Analisi 1", department: ""), isPostedQuestion: $isPostedQuestion), isActive: $isPostedQuestion) {
+            NavigationLink(destination: SubjectView(tag: tag), isActive: $isPostedQuestion) {
             }
             ScrollView{
                 Divider()
@@ -61,8 +60,6 @@ struct AddQuestionView: View {
                             }
                         }.padding(.horizontal, 12)
                     }
-                }.onAppear(){
-                    isShowingAddQuestionView = false
                 }
             }
             .background(Color(UIColor(named: "ScreenColor")!))
@@ -71,7 +68,8 @@ struct AddQuestionView: View {
                 ToolbarItem{
                     Button{
                         addQuestion(title: title, profile: Student(name: "Walter", surname: "White", username: "WWhite"), body: question, tag: tag, answers: [], ACounter: 0, AnswerCounter: 0)
-                        isPostedQuestion = true
+//                        update Questions
+                        dismiss()
                     } label: {
                         Text("Post")
                     }
@@ -89,6 +87,6 @@ struct AddQuestionView: View {
 
 struct AddQuestionView_Previews: PreviewProvider {
     static var previews: some View {
-        AddQuestionView(isShowingAddQuestionView: Binding<Bool>.constant(true))
+        AddQuestionView()
     }
 }
