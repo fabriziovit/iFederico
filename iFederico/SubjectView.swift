@@ -42,7 +42,7 @@ struct SubjectView: View {
     var body: some View {
         NavigationStack{
             ScrollView{
-                ForEach(filteredQuestion) {question in
+                ForEach(filteredQuestion.reversed()) {question in
                     NavigationLink(destination: QuestionView(index: question.index)) {
                         ZStack(alignment: .center) {
                             

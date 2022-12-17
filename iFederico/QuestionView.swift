@@ -13,6 +13,7 @@ struct QuestionView: View {
     @ObservedObject var myData = sharedData
     @State var newAnswer : String = ""
     @State var isAnswerViewPresented: Bool = false
+    @State var isAnswerReplyPresented: Bool = false
     
     var body: some View {
         VStack{
@@ -54,10 +55,10 @@ struct QuestionView: View {
                             Text("\(myData.questions[index].answers.count)" + "  ")
                                 .foregroundColor(.black)
                             
-                            Image(systemName: "square.and.arrow.down")
-                                .font(.custom("SFPro", size: 18))
-                            Text("Save")
-                                .foregroundColor(.black)
+//                            Image(systemName: "square.and.arrow.down")
+//                                .font(.custom("SFPro", size: 18)).hidden()
+//                            Text("Save")
+//                                .foregroundColor(.black).hidden()
                         }
                         .foregroundColor(Color("AppBlu"))
                         
@@ -94,17 +95,30 @@ struct QuestionView: View {
                                 .foregroundColor(.black)
                             
                             Spacer()
-                            Image(systemName: "arrowshape.turn.up.left")
+                            Image(systemName: "arrowshape.turn.up.left").onTapGesture {
+                                isAnswerReplyPresented = true
+                            }
                             Text ("Reply" + "   ")
                                 .foregroundColor(.black)
                             
+                                .sheet(isPresented: $isAnswerReplyPresented) {
+                                    AddAnswerView(index: index, answer: "@"+answer.profile.username)
+                                }
+                            
                             Image(systemName: "arrowshape.backward")
-                                .rotationEffect(.degrees(90))
+                                .rotationEffect(.degrees(90)).onTapGesture {
+                                    //                                    answer.like = answer.like + 1
+                                    
+                                }
+                            
+                            
                             
                             Text("\(answer.like)" + " ")
                                 .foregroundColor(.black)
                             Image(systemName: "arrowshape.backward")
-                                .rotationEffect(.degrees(270))
+                                .rotationEffect(.degrees(270)).onTapGesture {
+                                    //                                    answer.dislike = answer.dislike + 1
+                                }
                             Text("\(answer.dislike)")
                                 .foregroundColor(.black)
                             
@@ -137,7 +151,6 @@ struct QuestionView: View {
         .sheet(isPresented: $isAnswerViewPresented){
             AddAnswerView(index: index)
         }
-        
     }//body
 }//view
 

@@ -8,11 +8,20 @@
 import SwiftUI
 
 struct AddAnswerView: View {
-    @State var myData = sharedData
+    @ObservedObject var myData = sharedData
     @State var index: Int
     @State var profile: Student = Student (name: "Walter", surname: "White", username: "WWhite", department: "Mechatronic Engineering",description: "This is my Bio, welcome to my profile. I’m a mechatronic engineering student of Federico II- Say my Name!", nameImage: "Profilo")
-    @State private var answer: String = "Write your answer..."
+    @State var answer: String = "Write your answer..."
     @State private var isAnswerPosted: Bool = false
+    
+    /*var filteredAnswerText: String{
+        if indexAnswer != -1 {
+            return "@" + myData.questions[index].answers[indexAnswer].profile.username
+        }else{
+            return  "Write your answer..."
+        }
+        return "Write your answer..."
+    }*/
     
     @Environment(\.dismiss) private var dismiss
     
@@ -39,12 +48,7 @@ struct AddAnswerView: View {
                                 answer = ""
                             }
                         }.padding(.horizontal, 12)
-                        //TextField("Write a Question...", text: $domanda)
-                        //.position(x: 196, y: 25)
-                        //.padding()
                     }
-                }.onAppear(){
-                    //                    isAnswerViewPresented = false
                 }
             }
             .background(Color(UIColor(named: "ScreenColor")!))

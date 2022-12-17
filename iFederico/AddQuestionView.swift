@@ -69,7 +69,6 @@ struct AddQuestionView: View {
                 ToolbarItem{
                     Button{
                         addQuestion(title: title, profile: Student(name: "Walter", surname: "White", username: "WWhite"), body: question, tag: tag, answers: [], ACounter: 0, AnswerCounter: 0)
-//                        update Questions
                         dismiss()
                     } label: {
                         Text("Post")
@@ -82,7 +81,7 @@ struct AddQuestionView: View {
     func addQuestion(title: String, profile : Student, body : String, tag : Subject, answers : [Answer], ACounter : Int, AnswerCounter : Int){
         let newQuestion = Question(title: title, profile: profile, body: body, tag: tag, answers: [], ACounter: 0, date: Date(), index: myData.questions.count)
         
-        myData.questions.insert(newQuestion, at: 0)
+        myData.questions.append(newQuestion)
     }
 }
 
