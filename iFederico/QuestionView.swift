@@ -146,7 +146,6 @@ struct QuestionView: View {
             
             
         } //vstack
-        .frame(width: 400)
         .background(Color("ScreenColor"))
         .sheet(isPresented: $isAnswerViewPresented){
             AddAnswerView(index: index)
