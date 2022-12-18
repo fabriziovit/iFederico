@@ -15,7 +15,7 @@ struct ContainerView: View {
             GeneralView()
                 .tabItem {
                     Image(systemName: "square.and.pencil")
-                    Text("General")
+                    Text("Study Space")
                 }
             MessagesView()
                 .tabItem {
